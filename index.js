@@ -14,7 +14,7 @@ app.get('/',(req,res)=>{
 })
 
 
-app.post('/create',(req,res)=>{
+app.get('/create',(req,res)=>{
     let date = format(new Date(),'dd-MM-yyyy-HH-mm-ss');
      const filepath =`Files/${date}.txt`
     fs.writeFileSync(filepath,`${date}`,"utf8");
