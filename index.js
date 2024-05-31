@@ -14,7 +14,7 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/create',(req,res)=>{
-    let date = format(new Date(),'dd-mm-yyyy-HH-mm-ss');
+    let date = format(new Date(),'dd-MM-yyyy-HH-mm-ss');
      const filepath =`Files/${date}.txt`
     fs.writeFileSync(filepath,`${date}`,"utf8");
     res.status(200).send("<div>created successfully</div>")
@@ -22,7 +22,7 @@ app.get('/create',(req,res)=>{
 
 app.get('/read',(req,res)=>{
     let files=fs.readdirSync(`Files`);
-    let content =[]
+    const content =[]
     files.forEach((e)=>{
         content.push(fs.readFileSync(`Files/${e}`,"utf8"))
     })
@@ -30,5 +30,5 @@ app.get('/read',(req,res)=>{
 })
 
 app.listen(PORT,()=>{
-    console.log(`App is listening to ${PORT}`)
+    console.log(`App is listening `)
 })
